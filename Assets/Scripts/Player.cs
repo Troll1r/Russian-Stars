@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
     PlayerInputs inputs;
     [Header("BasicMovement")]
 
-    [SerializeField] private float _speed;
-    [SerializeField] private float _speedIncreasingTime;
+    private float _speed;
+    private float _speedIncreasingTime;
 
     [SerializeField] private GameObject _mesh;
 
@@ -17,16 +17,15 @@ public class Player : MonoBehaviour
     private Vector3 _moveVector;
     private Vector3 _directionVector;
 
-    [SerializeField] private Transform _bulletSpawned;
-
-    [SerializeField] private GameObject _bulletSpawner;
-    [SerializeField] private GameObject bullet;
-
-
-
     [Space]
     [Header("Guns")]
     [SerializeField] private Weapons _weapon;
+    [SerializeField] private Transform _bulletSpawner;
+    [SerializeField] private float _stickToShootOffset;
+    private int _localMagazine;
+    [Space]
+    [Header("CharacterStats")]
+    [SerializeField] private CharacterStats _stats;
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -36,6 +35,10 @@ public class Player : MonoBehaviour
         inputs = new PlayerInputs();
         inputs.Enable();
         inputs.Main.Shoot.canceled += x => Shooting();
+
+        _speed = _stats.characterSpeed;
+        _speedIncreasingTime = _stats.characterSpeedIncrreasingTime;
+        _localMagazine = _weapon.magazine;
     }
 
     private void FixedUpdate()
@@ -69,12 +72,24 @@ public class Player : MonoBehaviour
 
     private void Shooting()
     {
-        if (_directionVector != Vector3.zero)
+        if (_directionVector.magnitude > _stickToShootOffset && Time.time > _weapon.reloadTime && _localMagazine > 0)
         {
-             
-            _bulletSpawned = Instantiate(bullet.transform, _bulletSpawner.transform.position, Quaternion.identity);
-            _bulletSpawned.rotation = _bulletSpawner.transform.rotation;
+            GameObject _bulletSpawned = Instantiate(_weapon.bullet, _bulletSpawner.position, _bulletSpawner.rotation);
+            Bullet _bulletCs = _bulletSpawned.GetComponent<Bullet>();
 
+            _bulletCs.bulletSpeed = _weapon.bulletSpeed;
+            _bulletCs.bulletDamage = _weapon.attackDamage;
+            _bulletCs.bulletLifeTime = _weapon.bulletLifeTime;
+            if (_moveVector!= Vector3.zero)
+            {
+                _bulletCs.direction = _bulletSpawner.forward * _moveVector.magnitude;
+            }
+            else
+            {
+                _bulletCs.direction = _bulletSpawner.forward;
+            }
+
+            _localMagazine--;
         }
     }
 }

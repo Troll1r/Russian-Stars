@@ -11,9 +11,12 @@ public class Weapons : ScriptableObject
 
     public float bulletSpeed;
     public float reloadTime;
+    public float bulletLifeTime;
 
-    public int attackDamage;
+    public float attackDamage;
     public int magazine;
+
+    public GameObject bullet;
 
     public Sprite icon;
 

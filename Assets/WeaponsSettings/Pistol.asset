@@ -15,8 +15,10 @@ MonoBehaviour:
   rangeOfDefeat: Short
   weaponName: Pistol
   ShootingMode: Single
-  bulletSpeed: 0
+  bulletSpeed: 5
   reloadTime: 1
+  bulletLifeTime: 100
   attackDamage: 10
-  magazine: 10
+  magazine: 100
+  bullet: {fileID: 1232966516746540435, guid: 4c038fcb30384734898649f17ab7c2e0, type: 3}
   icon: {fileID: 0}

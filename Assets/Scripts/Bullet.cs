@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [HideInInspector] public float bulletSpeed;
+    [HideInInspector] public float bulletDamage;
+    [HideInInspector] public float bulletLifeTime;
+    [HideInInspector] public Vector3 direction; 
+
+    private void FixedUpdate()
     {
-        
+        transform.Translate(direction * bulletSpeed * Time.deltaTime, Space.World);
+        Destroy(gameObject, bulletLifeTime * Time.deltaTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider col)
     {
-        
+        if (col.gameObject.layer != 6)
+        {
+            print("wrg");
+            Destroy(gameObject);
+        }
     }
 }
