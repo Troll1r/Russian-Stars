@@ -6,15 +6,27 @@ public class Player : MonoBehaviour
 {
     PlayerInputs inputs;
     [Header("BasicMovement")]
+
     [SerializeField] private float _speed;
     [SerializeField] private float _speedIncreasingTime;
+
     [SerializeField] private GameObject _mesh;
+
     private CharacterController _characterController;
+
     private Vector3 _moveVector;
     private Vector3 _directionVector;
+
+    [SerializeField] private Transform _bulletSpawned;
+
+    [SerializeField] private GameObject _bulletSpawner;
+    [SerializeField] private GameObject bullet;
+
+
+
     [Space]
     [Header("Guns")]
-    [SerializeField] private Gun _gun;
+    [SerializeField] private Weapons _weapon;
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -59,7 +71,10 @@ public class Player : MonoBehaviour
     {
         if (_directionVector != Vector3.zero)
         {
-            print("shoot " + _gun._bulletSpeed);
+             
+            _bulletSpawned = Instantiate(bullet.transform, _bulletSpawner.transform.position, Quaternion.identity);
+            _bulletSpawned.rotation = _bulletSpawner.transform.rotation;
+
         }
     }
 }
