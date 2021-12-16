@@ -7,18 +7,24 @@ public class ZombieHp : MonoBehaviour
     [SerializeField] private ZombiesStats _stats;
 
 
-    [SerializeField] private int _hp;
+    
+    public float _hp;
+
+    public float damage;
 
     [SerializeField] private GameObject _zombie;
-   
+
+
     void Start()
     {
-        _hp = _stats.hp;
 
-        
+        _hp = _stats.hp;
+        damage = GetComponent<Bullet>().bulletDamage;
+
     }
     public void Update()
     {
+        print(damage);
         Dying();
     }
     private void OnTriggerEnter(Collider col)
@@ -26,7 +32,7 @@ public class ZombieHp : MonoBehaviour
         if (col.gameObject.tag == "Bullet")
         {
             Destroy(col.gameObject);
-            _hp -= 1;
+            _hp -= damage;
             print("hit");
         }
     }
