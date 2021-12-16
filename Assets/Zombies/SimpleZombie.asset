@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b239776b46e38b54ea749b104de68d83, type: 3}
-  m_Name: character
+  m_Script: {fileID: 11500000, guid: ceb16a26a9add2d4591fe5c78cb00e15, type: 3}
+  m_Name: SimpleZombie
   m_EditorClassIdentifier: 
-  characterName: 
-  characterSpeed: 2.5
-  characterSpeedIncrreasingTime: 10
+  zombieName: Simple
+  zombieSpeed: 1
+  zombieSpeedIncrreasingTime: 5
+  hp: 1

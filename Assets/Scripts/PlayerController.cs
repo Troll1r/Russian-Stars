@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     PlayerInputs inputs;
     [Header("BasicMovement")]
@@ -91,5 +91,19 @@ public class Player : MonoBehaviour
 
             _localMagazine--;
         }
+    }
+    public void GetDamage()
+    {
+    
+    
+    
+    
+    }
+    public void Dying()
+    {
+    
+    
+    
+    
     }
 }

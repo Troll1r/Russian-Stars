@@ -7,6 +7,9 @@ using UnityEngine;
 public class CharacterStats : ScriptableObject
 {
     public string characterName;
+
     public float characterSpeed;
     public float characterSpeedIncrreasingTime;
+
+    public int hp;
 }
