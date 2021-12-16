@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
     [Space]
     [Header("CharacterStats")]
     [SerializeField] private CharacterStats _stats;
+    [Space]
+    [Header("Camera")]
+    [SerializeField] private Transform _cam;
+    [SerializeField] private Vector3 _offset;
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -91,19 +95,5 @@ public class PlayerController : MonoBehaviour
 
             _localMagazine--;
         }
-    }
-    public void GetDamage()
-    {
-    
-    
-    
-    
-    }
-    public void Dying()
-    {
-    
-    
-    
-    
     }
 }

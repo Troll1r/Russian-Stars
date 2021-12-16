@@ -8,15 +8,16 @@ public class Bullet : MonoBehaviour
     [HideInInspector] public float bulletDamage;
     [HideInInspector] public float bulletLifeTime;
     [HideInInspector] public Vector3 direction;
+    private Rigidbody rb;
 
-    public void Start()
+    private void Awake()
     {
-        bulletDamage = GetComponent<Weapons>().attackDamage;
+        rb = GetComponent<Rigidbody>();
     }
+
     private void FixedUpdate()
     {
-        print(bulletDamage);
-        transform.Translate(direction * bulletSpeed * Time.deltaTime, Space.World);
+        rb.MovePosition(transform.position + direction * bulletSpeed * Time.deltaTime);
         Destroy(gameObject, bulletLifeTime * Time.deltaTime);
     }
 
@@ -24,7 +25,11 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.layer != 6)
         {
-            print("wrg");
+            if (col.gameObject.layer == 7)
+            {
+                col.gameObject.GetComponent<HP>().GetDamage(bulletDamage);
+            }
+
             Destroy(gameObject);
         }
     }
