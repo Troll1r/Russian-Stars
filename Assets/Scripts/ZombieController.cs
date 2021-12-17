@@ -18,18 +18,23 @@ public class ZombieController : MonoBehaviour
             if (_distance >= attackDistance)
             {
                 _navMesh.enabled = true;
-                _navMesh.destination = player.position * _stats.zombieSpeed;
+                _navMesh.destination = player.transform.position * _stats.zombieSpeed;
             }
             else
             {
                 _navMesh.enabled = false;
 
+                if (_canAttack)
+                {
+                    StartCoroutine(Damage());
+                }
             }
         }
     }
     private float dist;
+    private bool _canAttack = true;
     [Header("Target")]
-    [SerializeField] private Transform player;
+    [SerializeField] private PlayerController player;
     private NavMeshAgent _navMesh;
 
 
@@ -46,11 +51,22 @@ public class ZombieController : MonoBehaviour
 
         GetComponent<HP>()._health = _stats.hp;
 
-        player = FindObjectOfType<PlayerController>().transform;
+        player = FindObjectOfType<PlayerController>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        _distance = Vector3.Distance(player.position, transform.position);
+        _distance = Vector3.Distance(player.transform.position, transform.position);
+    }
+
+    private IEnumerator Damage()
+    {
+        _canAttack = false;
+        yield return new WaitForSeconds(_stats.attackCooldawn);
+        if (_distance < attackDistance)
+        {
+            player.GetDamage(_stats._damage);
+        }
+        _canAttack = true;
     }
 }

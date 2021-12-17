@@ -15,4 +15,6 @@ MonoBehaviour:
   zombieName: Simple
   zombieSpeed: 1
   zombieSpeedIncrreasingTime: 5
-  hp: 1
+  _damage: 1
+  attackCooldawn: 0.5
+  hp: 5

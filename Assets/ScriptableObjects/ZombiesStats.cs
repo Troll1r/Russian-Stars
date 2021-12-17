@@ -10,6 +10,8 @@ public class ZombiesStats : ScriptableObject
 
     public float zombieSpeed;
     public float zombieSpeedIncrreasingTime;
+    public float _damage;
+    public float attackCooldawn;
 
     public int hp;
 }

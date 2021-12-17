@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _zombie;
     [SerializeField] private List<GameObject> _zombies;
     [SerializeField] private List<Transform> _spawnPoints;
-    [SerializeField] private int _waves;
+    [SerializeField] private float _waves;
+    [SerializeField] private Image _progressBar;
 
     private void Awake()
     {
@@ -16,6 +18,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
+        float maxWawes = _waves;
         for (int i = 0; i < _spawnPoints.Count; i++)
         {
             GameObject _currentZombie = Instantiate(_zombie, _spawnPoints[i].position, _spawnPoints[i].rotation);
@@ -24,7 +27,7 @@ public class Spawner : MonoBehaviour
 
         _waves--;
 
-        while(IsFull(_zombies))
+        while (IsFull(_zombies))
         {
             yield return null;
         }
@@ -32,6 +35,7 @@ public class Spawner : MonoBehaviour
         if (_waves > 0)
         {
             _zombies.Clear();
+            _progressBar.fillAmount = _waves / maxWawes;
             StartCoroutine(SpawnWave());
         }
     }

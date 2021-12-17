@@ -15,8 +15,8 @@ MonoBehaviour:
   rangeOfDefeat: Short
   weaponName: Pistol
   ShootingMode: Single
-  bulletSpeed: 5
-  reloadTime: 1
+  bulletSpeed: 20
+  reloadTime: 0.1
   bulletLifeTime: 100
   attackDamage: 1
   magazine: 100

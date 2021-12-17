@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,7 +31,11 @@ public class PlayerController : MonoBehaviour
     [Space]
     [Header("Camera")]
     [SerializeField] private Transform _cam;
-    [SerializeField] private Vector3 _offset;
+    [Space]
+    [Header("HealthAndDamage")]
+    [SerializeField] private float _health;
+    private float _maxHealth;
+    [SerializeField] private Image _hpBar;
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -43,6 +49,7 @@ public class PlayerController : MonoBehaviour
         _speed = _stats.characterSpeed;
         _speedIncreasingTime = _stats.characterSpeedIncrreasingTime;
         _localMagazine = _weapon.magazine;
+        _maxHealth = _health;
     }
 
     private void FixedUpdate()
@@ -84,16 +91,26 @@ public class PlayerController : MonoBehaviour
             _bulletCs.bulletSpeed = _weapon.bulletSpeed;
             _bulletCs.bulletDamage = _weapon.attackDamage;
             _bulletCs.bulletLifeTime = _weapon.bulletLifeTime;
-            if (_moveVector!= Vector3.zero)
-            {
-                _bulletCs.direction = _bulletSpawner.forward * _moveVector.magnitude;
-            }
-            else
-            {
-                _bulletCs.direction = _bulletSpawner.forward;
-            }
+            _bulletCs.direction = _bulletSpawner.forward;
 
             _localMagazine--;
         }
+    }
+
+    public void GetDamage(float damage)
+    {
+        _health -= damage;
+
+        _hpBar.fillAmount = _health / _maxHealth;
+
+        if (_health <= 0)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
