@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _bulletSpawner;
     [SerializeField] private float _stickToShootOffset;
     private int _localMagazine;
+    private bool _isShooting;
     [Space]
     [Header("CharacterStats")]
     [SerializeField] private CharacterStats _stats;
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
         inputs = new PlayerInputs();
         inputs.Enable();
-        inputs.Main.Shoot.canceled += x => Shooting();
+        inputs.Main.Shoot.canceled += x => StartCoroutine(Shooting());
 
         _speed = _stats.characterSpeed;
         _speedIncreasingTime = _stats.characterSpeedIncrreasingTime;
@@ -69,31 +70,53 @@ public class PlayerController : MonoBehaviour
             _moveVector = Vector3.MoveTowards(_moveVector, Vector3.zero, _speedIncreasingTime * Time.deltaTime);
         }
 
-        if (directionInputVector != Vector2.zero)
+        if (!_isShooting)
         {
-            _mesh.transform.LookAt(transform.position + new Vector3(directionInputVector.x, 0, directionInputVector.y));
-        }
-        else
-        {
-            _mesh.transform.LookAt(transform.position + new Vector3(inputVector.x, 0, inputVector.y));
+            if (directionInputVector != Vector2.zero)
+            {
+                _mesh.transform.LookAt(transform.position + new Vector3(directionInputVector.x, 0, directionInputVector.y));
+            }
+            else
+            {
+                _mesh.transform.LookAt(transform.position + new Vector3(inputVector.x, 0, inputVector.y));
+            }
         }
 
         _characterController.Move(_moveVector * _speed * Time.deltaTime);
     }
 
-    private void Shooting()
+    private IEnumerator Shooting()
     {
         if (_directionVector.magnitude > _stickToShootOffset && Time.time > _weapon.reloadTime && _localMagazine > 0)
         {
-            GameObject _bulletSpawned = Instantiate(_weapon.bullet, _bulletSpawner.position, _bulletSpawner.rotation);
-            Bullet _bulletCs = _bulletSpawned.GetComponent<Bullet>();
+            _isShooting = true;
+            for (int i = 0; i < _weapon.bulletCount; i++)
+            {
+                GameObject _bulletSpawned = Instantiate(_weapon.bullet, _bulletSpawner.position, _bulletSpawner.rotation);
+                Bullet _bulletCs = _bulletSpawned.GetComponent<Bullet>();
 
-            _bulletCs.bulletSpeed = _weapon.bulletSpeed;
-            _bulletCs.bulletDamage = _weapon.attackDamage;
-            _bulletCs.bulletLifeTime = _weapon.bulletLifeTime;
-            _bulletCs.direction = _bulletSpawner.forward;
+                _bulletCs.bulletSpeed = _weapon.bulletSpeed;
+                _bulletCs.bulletDamage = _weapon.attackDamage;
+                _bulletCs.bulletLifeTime = _weapon.bulletLifeTime;
+
+                Transform standartSpawner = _bulletSpawner.transform;
+                _bulletSpawner.localRotation = Quaternion.Euler(_bulletSpawner.localRotation.x,
+                    _bulletSpawner.localRotation.y + Random.Range(-_weapon.spread, _weapon.spread), _bulletSpawner.localRotation.z);
+                _bulletCs.direction = _bulletSpawner.forward;
+                _bulletSpawner = standartSpawner;
+
+                if (_weapon.perShotCooldawn > 0)
+                {
+                    yield return new WaitForSeconds(_weapon.perShotCooldawn);
+                }
+                else
+                {
+                    continue;
+                }
+            }
 
             _localMagazine--;
+            _isShooting = false;
         }
     }
 

@@ -1723,7 +1723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ffe8e29fd374647950c65f4a6d6eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zombie: {fileID: 5609965655382148620, guid: 6da0a673dd220ac49b7944a8433e3b21, type: 3}
+  _zombie: {fileID: 5592083081075187883, guid: 6ba652db667ed0445aa74ca8017dc319, type: 3}
   _zombies: []
   _spawnPoints:
   - {fileID: 1826860990}

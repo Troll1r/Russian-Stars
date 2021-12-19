@@ -14,6 +14,9 @@ public class Weapons : ScriptableObject
     public float bulletLifeTime;
 
     public float attackDamage;
+    public float spread;
+    public float perShotCooldawn;
+    public int bulletCount;
     public int magazine;
 
     public GameObject bullet;

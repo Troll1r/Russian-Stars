@@ -14,11 +14,14 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         StartCoroutine(SpawnWave());
+
+        _progressBar.fillAmount = 0;
     }
 
     private IEnumerator SpawnWave()
     {
-        float maxWawes = _waves;
+        float maxWaves = _waves;
+        float completedWaves = 0;
         for (int i = 0; i < _spawnPoints.Count; i++)
         {
             GameObject _currentZombie = Instantiate(_zombie, _spawnPoints[i].position, _spawnPoints[i].rotation);
@@ -26,6 +29,7 @@ public class Spawner : MonoBehaviour
         }
 
         _waves--;
+        completedWaves++;
 
         while (IsFull(_zombies))
         {
@@ -35,7 +39,7 @@ public class Spawner : MonoBehaviour
         if (_waves > 0)
         {
             _zombies.Clear();
-            _progressBar.fillAmount = _waves / maxWawes;
+            _progressBar.fillAmount = (completedWaves / maxWaves) * 2;
             StartCoroutine(SpawnWave());
         }
     }
