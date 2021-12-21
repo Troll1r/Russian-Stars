@@ -5,30 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject[] _waveModeLevels;
+    [SerializeField] private mode _mode;
+    private enum mode
+    {
+        WAVEMODE,
+        PROTECTIONMODE
+    }
+
+
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnLevelWasLoaded(int level)
     {
-        
+        switch (_mode)
+        {
+            case mode.WAVEMODE:
+                Instantiate(_waveModeLevels[Random.Range(0, _waveModeLevels.Length)], 
+                    Vector3.zero, Quaternion.identity);
+                break;
+        }
     }
-    public void StartGame()
-    {
-        SceneManager.LoadScene(1);
-    
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
-    
-    
-    }
-
-    
-
 }

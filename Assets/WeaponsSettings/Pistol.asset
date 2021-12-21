@@ -19,9 +19,10 @@ MonoBehaviour:
   reloadTime: 1
   bulletLifeTime: 100
   attackDamage: 1
-  spread: 0
-  perShotCooldawn: 0.001
-  bulletCount: 1
+  spread: 10
+  minSpread: 5
+  perShotCooldawn: 0
+  bulletCount: 3
   magazine: 100
   bullet: {fileID: 1232966516746540435, guid: 4c038fcb30384734898649f17ab7c2e0, type: 3}
   icon: {fileID: 0}

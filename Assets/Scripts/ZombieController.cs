@@ -34,7 +34,7 @@ public class ZombieController : MonoBehaviour
     private float dist;
     private bool _canAttack = true;
     [Header("Target")]
-    [SerializeField] private PlayerController player;
+    public PlayerController player;
     private NavMeshAgent _navMesh;
 
 
@@ -50,8 +50,6 @@ public class ZombieController : MonoBehaviour
         _navMesh = GetComponent<NavMeshAgent>();
 
         GetComponent<HP>()._health = _stats.hp;
-
-        player = FindObjectOfType<PlayerController>();
     }
 
     private void FixedUpdate()

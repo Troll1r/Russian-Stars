@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
                 Transform standartSpawner = _bulletSpawner.transform;
                 _bulletSpawner.localRotation = Quaternion.Euler(_bulletSpawner.localRotation.x,
-                    _bulletSpawner.localRotation.y + Random.Range(-_weapon.spread, _weapon.spread), _bulletSpawner.localRotation.z);
+                    _bulletSpawner.localRotation.y + Random.Range(_weapon.minSpread, _weapon.spread), _bulletSpawner.localRotation.z);
                 _bulletCs.direction = _bulletSpawner.forward;
                 _bulletSpawner = standartSpawner;
 

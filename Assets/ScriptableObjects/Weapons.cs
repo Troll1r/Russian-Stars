@@ -15,6 +15,7 @@ public class Weapons : ScriptableObject
 
     public float attackDamage;
     public float spread;
+    public float minSpread;
     public float perShotCooldawn;
     public int bulletCount;
     public int magazine;

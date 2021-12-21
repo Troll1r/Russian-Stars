@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 7b77ea6b05531194bb026f4ed06b71a6,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -218,6 +219,7 @@ GameObject:
   - component: {fileID: 187748432}
   - component: {fileID: 187748431}
   - component: {fileID: 187748430}
+  - component: {fileID: 187748434}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -309,6 +311,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &187748434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187748429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355b8e67d60ec4244a6bdc15959eb106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &388846696
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,8 +675,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1271366124}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 187748434}
+        m_TargetAssemblyTypeName: Manu, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
@@ -1042,6 +1056,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7424bf69afa9d2e46a1dd3161cc13593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waveModeLevels:
+  - {fileID: 3276715334717568744, guid: 89b98eb7e3456434886b86289c428132, type: 3}
+  _mode: 0
 --- !u!4 &1271366125
 Transform:
   m_ObjectHideFlags: 0
@@ -1138,8 +1155,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1271366124}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 187748434}
+        m_TargetAssemblyTypeName: Manu, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:

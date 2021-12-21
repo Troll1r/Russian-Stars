@@ -10,12 +10,17 @@ public class Spawner : MonoBehaviour
     [SerializeField] private List<Transform> _spawnPoints;
     [SerializeField] private float _waves;
     [SerializeField] private Image _progressBar;
+    [SerializeField] private GameObject _player;
+    [SerializeField] private Transform _playerSpawnPoint;
+    [SerializeField] private GameObject curPlayer;
 
     private void Awake()
     {
         StartCoroutine(SpawnWave());
 
-        _progressBar.fillAmount = 0;
+        //_progressBar.fillAmount = 0;
+
+        curPlayer = Instantiate(_player, _playerSpawnPoint.position, _playerSpawnPoint.rotation);
     }
 
     private IEnumerator SpawnWave()
@@ -25,6 +30,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < _spawnPoints.Count; i++)
         {
             GameObject _currentZombie = Instantiate(_zombie, _spawnPoints[i].position, _spawnPoints[i].rotation);
+            _currentZombie.GetComponent<ZombieController>().player = curPlayer.GetComponent<PlayerController>();
             _zombies.Add(_currentZombie);
         }
 
