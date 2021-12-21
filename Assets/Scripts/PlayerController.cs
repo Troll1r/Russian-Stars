@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float _speedIncreasingTime;
 
     [SerializeField] private GameObject _mesh;
+    [SerializeField] private Transform _canvas;
 
     private CharacterController _characterController;
 
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     [Header("HealthAndDamage")]
     [SerializeField] private float _health;
     private float _maxHealth;
+    [SerializeField] private Vector3 _healthBarWatchAt;
     [SerializeField] private Image _hpBar;
     private void Awake()
     {
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move(inputs.Main.Movement.ReadValue<Vector2>(), inputs.Main.LookAround.ReadValue<Vector2>());
+        _canvas.transform.LookAt(transform.position + _healthBarWatchAt);
     }
 
     private void Move(Vector2 inputVector, Vector2 directionInputVector)
