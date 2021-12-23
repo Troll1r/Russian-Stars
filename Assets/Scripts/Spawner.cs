@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < _spawnPoints.Count; i++)
         {
             GameObject _currentZombie = Instantiate(_zombie, _spawnPoints[i].position, _spawnPoints[i].rotation);
-            _currentZombie.GetComponent<ZombieController>().player = curPlayer.GetComponent<PlayerController>();
+            print(_currentZombie.transform.position + " " + _spawnPoints[i].position);
             _zombies.Add(_currentZombie);
         }
 

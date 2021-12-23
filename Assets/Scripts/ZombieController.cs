@@ -18,7 +18,7 @@ public class ZombieController : MonoBehaviour
             if (_distance >= attackDistance)
             {
                 _navMesh.enabled = true;
-                _navMesh.destination = player.transform.position * _stats.zombieSpeed;
+                _navMesh.destination = player.transform.position;
             }
             else
             {
@@ -50,10 +50,17 @@ public class ZombieController : MonoBehaviour
         _navMesh = GetComponent<NavMeshAgent>();
 
         GetComponent<HP>()._health = _stats.hp;
+
+        _navMesh.speed = _stats.zombieSpeed;
     }
 
     private void FixedUpdate()
     {
+        if (player == null)
+        {
+            player = FindObjectOfType<PlayerController>();
+        }
+
         _distance = Vector3.Distance(player.transform.position, transform.position);
     }
 

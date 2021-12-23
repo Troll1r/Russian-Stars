@@ -6,15 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] _waveModeLevels;
-    [SerializeField] private mode _mode;
-    private enum mode
-    {
-        WAVEMODE,
-        PROTECTIONMODE
-    }
+    [HideInInspector] public int _mode;
 
-
-    void Awake()
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
@@ -23,10 +17,11 @@ public class GameManager : MonoBehaviour
     {
         switch (_mode)
         {
-            case mode.WAVEMODE:
+            case 0:
                 Instantiate(_waveModeLevels[Random.Range(0, _waveModeLevels.Length)], 
                     Vector3.zero, Quaternion.identity);
                 break;
         }
     }
 }
+

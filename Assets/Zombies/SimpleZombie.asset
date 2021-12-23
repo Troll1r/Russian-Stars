@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SimpleZombie
   m_EditorClassIdentifier: 
   zombieName: Simple
-  zombieSpeed: 1
+  zombieSpeed: 3
   zombieSpeedIncrreasingTime: 5
   _damage: 1
   attackCooldawn: 0.5
