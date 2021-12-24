@@ -36,9 +36,6 @@ public class PlayerController : MonoBehaviour
     [Space]
     [Header("HealthAndDamage")]
     [SerializeField] private float _health;
-    private float _maxHealth;
-    [SerializeField] private Vector3 _healthBarWatchAt;
-    [SerializeField] private Image _hpBar;
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -52,13 +49,11 @@ public class PlayerController : MonoBehaviour
         _speed = _stats.characterSpeed;
         _speedIncreasingTime = _stats.characterSpeedIncrreasingTime;
         _localMagazine = _weapon.magazine;
-        _maxHealth = _health;
     }
 
     private void FixedUpdate()
     {
         Move(inputs.Main.Movement.ReadValue<Vector2>(), inputs.Main.LookAround.ReadValue<Vector2>());
-        _canvas.transform.LookAt(transform.position + _healthBarWatchAt);
     }
 
     private void Move(Vector2 inputVector, Vector2 directionInputVector)
@@ -123,19 +118,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void GetDamage(float damage)
-    {
-        _health -= damage;
-
-        _hpBar.fillAmount = _health / _maxHealth;
-
-        if (_health <= 0)
-        {
-            Death();
-        }
-    }
-
-    private void Death()
+    public void Death()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

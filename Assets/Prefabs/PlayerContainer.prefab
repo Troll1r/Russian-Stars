@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 3954641769910381984}
   - component: {fileID: 3954641769910381985}
   - component: {fileID: 3954641769910381986}
+  - component: {fileID: 772923204657678121}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -339,8 +340,6 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: c320169fc10aee44c91c79096304d0ed, type: 2}
   _cam: {fileID: 0}
   _health: 5
-  _healthBarWatchAt: {x: 0, y: 10, z: -10}
-  _hpBar: {fileID: 3954641769356264299}
 --- !u!143 &3954641769910381986
 CharacterController:
   m_ObjectHideFlags: 0
@@ -359,6 +358,37 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &772923204657678121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3954641769910381987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639e5b274b193ed49815f0be0620e25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 5
+  _death:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3954641769910381985}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _healthBar: {fileID: 3954641769356264299}
+  _canvas: {fileID: 3954641771081051390}
+  _healthBarWatchAt: {x: 0, y: 10, z: -10}
 --- !u!1 &3954641770253455144
 GameObject:
   m_ObjectHideFlags: 0

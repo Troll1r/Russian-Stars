@@ -6,31 +6,43 @@ using UnityEngine.UI;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _zombie;
-    [SerializeField] private List<GameObject> _zombies;
+    private List<GameObject> _zombies;
     [SerializeField] private List<Transform> _spawnPoints;
     [SerializeField] private float _waves;
+    [SerializeField] private float _midWaveCooldawn;
     [SerializeField] private Image _progressBar;
     [SerializeField] private GameObject _player;
     [SerializeField] private Transform _playerSpawnPoint;
-    [SerializeField] private GameObject curPlayer;
+    private GameObject curPlayer;
 
     private void Awake()
     {
         StartCoroutine(SpawnWave());
 
         //_progressBar.fillAmount = 0;
-
-        curPlayer = Instantiate(_player, _playerSpawnPoint.position, _playerSpawnPoint.rotation);
     }
 
     private IEnumerator SpawnWave()
     {
+        yield return new WaitForSeconds(_midWaveCooldawn);
+
         float maxWaves = _waves;
         float completedWaves = 0;
         for (int i = 0; i < _spawnPoints.Count; i++)
         {
             GameObject _currentZombie = Instantiate(_zombie, _spawnPoints[i].position, _spawnPoints[i].rotation);
-            print(_currentZombie.transform.position + " " + _spawnPoints[i].position);
+
+            gameObject.GetComponentInParent<Transform>().position = new Vector3(gameObject.GetComponentInParent<Transform>().position.x,
+                5.4f, gameObject.GetComponentInParent<Transform>().position.z);
+
+            _playerSpawnPoint.position = new Vector3(_playerSpawnPoint.position.x,
+                5.4f, _playerSpawnPoint.position.z);
+
+            if (i == 0)
+            {
+                curPlayer = Instantiate(_player, _playerSpawnPoint.position, _playerSpawnPoint.rotation);
+            }
+
             _zombies.Add(_currentZombie);
         }
 

@@ -70,7 +70,7 @@ public class ZombieController : MonoBehaviour
         yield return new WaitForSeconds(_stats.attackCooldawn);
         if (_distance < attackDistance)
         {
-            player.GetDamage(_stats._damage);
+            player.gameObject.GetComponent<HP>().GetDamage(_stats._damage);
         }
         _canAttack = true;
     }

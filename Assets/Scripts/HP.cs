@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class HP : MonoBehaviour
 {
     public float _health;
     private float _maxHP;
+    [SerializeField] private UnityEvent _death;
     [SerializeField] private Image _healthBar;
     [SerializeField] private Transform _canvas;
     [SerializeField] private Vector3 _healthBarWatchAt;
@@ -27,7 +29,7 @@ public class HP : MonoBehaviour
 
         if (_health <= 0)
         {
-            Destroy(gameObject);
+            _death.Invoke();
         }
 
         _healthBar.fillAmount = _health / _maxHP;
