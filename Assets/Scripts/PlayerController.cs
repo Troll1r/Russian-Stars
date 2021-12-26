@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool _isShooting;
     [Space]
     [Header("CharacterStats")]
-    [SerializeField] private CharacterStats _stats;
+    [HideInInspector] public CharacterStats _stats;
     [Space]
     [Header("Camera")]
     [SerializeField] private Transform _cam;

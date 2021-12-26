@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b239776b46e38b54ea749b104de68d83, type: 3}
   m_Name: character1
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: esho odin konstantin
   characterSpeed: 2
   characterSpeedIncrreasingTime: 3
+  hp: 3

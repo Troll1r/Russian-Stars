@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] _waveModeLevels;
+    public GameObject player;
     [HideInInspector] public int _mode;
 
     private void Awake()

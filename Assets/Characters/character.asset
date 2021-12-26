@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b239776b46e38b54ea749b104de68d83, type: 3}
   m_Name: character
   m_EditorClassIdentifier: 
-  characterName: 
-  characterSpeed: 2.5
-  characterSpeedIncrreasingTime: 10
+  characterName: konstantin
+  characterSpeed: 0
+  characterSpeedIncrreasingTime: 0
+  hp: 3
