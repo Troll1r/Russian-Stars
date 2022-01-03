@@ -21,6 +21,7 @@ public class Weapons : ScriptableObject
     public int magazine;
 
     public GameObject bullet;
+    public GameObject gunMesh;
 
     public Sprite icon;
 

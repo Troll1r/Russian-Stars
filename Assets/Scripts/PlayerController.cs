@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
 
     [Space]
     [Header("Guns")]
-    [SerializeField] private Weapons _weapon;
+    [HideInInspector] public Weapons _weapon;
+    [SerializeField] private Transform _gunPos;
+    private GameObject _gunMesh;
     [SerializeField] private Transform _bulletSpawner;
     [SerializeField] private float _stickToShootOffset;
     private int _localMagazine;
@@ -49,6 +51,9 @@ public class PlayerController : MonoBehaviour
         _speed = _stats.characterSpeed;
         _speedIncreasingTime = _stats.characterSpeedIncrreasingTime;
         _localMagazine = _weapon.magazine;
+
+        _gunMesh = Instantiate(_weapon.gunMesh, _gunPos.position, _gunPos.rotation);
+        _gunPos.SetParent(_gunPos);
     }
 
     private void FixedUpdate()

@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aef449eff7ada64fb891c008a186a51, type: 3}
-  m_Name: Pistol
+  m_Name: ShotGun
   m_EditorClassIdentifier: 
   rangeOfDefeat: Short
-  weaponName: Pistol
+  weaponName: sHOTguN
   ShootingMode: Single
-  bulletSpeed: 25
-  reloadTime: 1
-  bulletLifeTime: 100
-  attackDamage: 1
-  spread: 10
-  minSpread: 5
+  bulletSpeed: 0
+  reloadTime: 0
+  bulletLifeTime: 0
+  attackDamage: 0
+  spread: 0
+  minSpread: 0
   perShotCooldawn: 0
-  bulletCount: 3
-  magazine: 100
+  bulletCount: 0
+  magazine: 0
   bullet: {fileID: 1232966516746540435, guid: 4c038fcb30384734898649f17ab7c2e0, type: 3}
-  gunMesh: {fileID: 100004, guid: b812e42521a5a27499e76cc5ed56e3ac, type: 3}
+  gunMesh: {fileID: 100000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
   icon: {fileID: 0}
