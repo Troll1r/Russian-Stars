@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Manu : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject[] _menusObjects;
@@ -15,7 +15,7 @@ public class Manu : MonoBehaviour
     public void StartGame(int Mode) 
     {
         _gameManager._mode = Mode;
-        SceneManager.LoadScene(1);
+        SceneLoader.SwitchToScene(1);
     }
     public void ExitGame()
     {

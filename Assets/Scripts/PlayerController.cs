@@ -52,8 +52,10 @@ public class PlayerController : MonoBehaviour
         _speedIncreasingTime = _stats.characterSpeedIncrreasingTime;
         _localMagazine = _weapon.magazine;
 
+
         _gunMesh = Instantiate(_weapon.gunMesh, _gunPos.position, _gunPos.rotation);
-        _gunPos.SetParent(_gunPos);
+        _gunPos.position = _bulletSpawner.position;
+        _gunMesh.transform.SetParent(_bulletSpawner);
     }
 
     private void FixedUpdate()
