@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject[] _menusObjects;
-
+    [SerializeField] private SceneLoader _sceneloader;
     private void Awake()
     {
         LoadMenu(0);
@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour
     public void StartGame(int Mode) 
     {
         _gameManager._mode = Mode;
-        SceneLoader.SwitchToScene(1);
+        _sceneloader.Load(1);
     }
     public void ExitGame()
     {
