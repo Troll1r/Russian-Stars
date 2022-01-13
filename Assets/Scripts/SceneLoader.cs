@@ -13,29 +13,41 @@ public class SceneLoader : MonoBehaviour
 
     private AsyncOperation loadingSceneOperation;
 
-    public IEnumerator SwitchToScene(int sceneName)
-    {       
-        for (int i = 0; i < 100; i++)
-        {
-            LoadingPercentage.gameObject.SetActive(true);
-            LoadingProgressBar.gameObject.SetActive(true);
+    private bool isLoadingScene;
 
-            LoadingPercentage.text = i + "%";
-            LoadingProgressBar.fillAmount = Mathf.Lerp(LoadingProgressBar.fillAmount, i / 1000,
+    public IEnumerator SwitchToScene(int sceneName)
+    {
+        isLoadingScene = true;
+
+        loadingSceneOperation = SceneManager.LoadSceneAsync(sceneName);
+        loadingSceneOperation.allowSceneActivation = false;
+
+        LoadingPercentage.gameObject.SetActive(true);
+        LoadingProgressBar.gameObject.SetActive(true);
+
+        while(!loadingSceneOperation.isDone)
+        {
+            LoadingPercentage.text = (loadingSceneOperation.progress * 100) + "%";
+            LoadingProgressBar.fillAmount = Mathf.Lerp(LoadingProgressBar.fillAmount, loadingSceneOperation.progress,
                 Time.deltaTime * 5);
 
-            yield return new WaitForFixedUpdate();
+            print(loadingSceneOperation.progress);
+            yield return null;
         }
+
+        isLoadingScene = false;
+        loadingSceneOperation.allowSceneActivation = true;
 
         LoadingPercentage.gameObject.SetActive(false);
         LoadingProgressBar.gameObject.SetActive(false);
-
-        SceneManager.LoadScene(sceneName);
     }
 
     public void Load(int i)
     {
-        StartCoroutine(SwitchToScene(i));
+        if (!isLoadingScene)
+        {
+            StartCoroutine(SwitchToScene(i));
+        }
     }
 
     private void Start()

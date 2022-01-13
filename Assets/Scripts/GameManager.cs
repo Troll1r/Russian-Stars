@@ -14,14 +14,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void OnLevelWasLoaded(int level)
+    private void Start()
     {
-        switch (_mode)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            case 0:
-                Instantiate(_waveModeLevels[Random.Range(0, _waveModeLevels.Length)], 
-                    Vector3.zero, Quaternion.identity);
-                break;
+            switch (_mode)
+            {
+                case 0:
+                    Instantiate(_waveModeLevels[Random.Range(0, _waveModeLevels.Length)],
+                        Vector3.zero, Quaternion.identity);
+                    break;
+            }
         }
     }
 }
