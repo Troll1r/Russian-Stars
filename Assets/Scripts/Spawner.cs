@@ -17,9 +17,9 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(SpawnWave());
+        _player = FindObjectOfType<PlayerManager>().player;
 
-        //_progressBar.fillAmount = 0;
+        StartCoroutine(SpawnWave());
     }
 
     private IEnumerator SpawnWave()
@@ -31,12 +31,6 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < _spawnPoints.Count; i++)
         {
             GameObject _currentZombie = Instantiate(_zombie, _spawnPoints[i].position, _spawnPoints[i].rotation);
-
-            /*gameObject.GetComponentInParent<Transform>().position = new Vector3(gameObject.GetComponentInParent<Transform>().position.x,
-                5.4f, gameObject.GetComponentInParent<Transform>().position.z);
-
-            _playerSpawnPoint.position = new Vector3(_playerSpawnPoint.position.x,
-                5.4f, _playerSpawnPoint.position.z);*/ 
 
             if (i == 0)
             {

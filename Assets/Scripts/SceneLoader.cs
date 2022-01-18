@@ -15,43 +15,22 @@ public class SceneLoader : MonoBehaviour
 
     private bool isLoadingScene;
 
-    public IEnumerator SwitchToScene(int sceneName)
+    private Animator anim;
+
+    public void Load()
     {
-        isLoadingScene = true;
-
-        loadingSceneOperation = SceneManager.LoadSceneAsync(sceneName);
-        loadingSceneOperation.allowSceneActivation = false;
-
-        LoadingPercentage.gameObject.SetActive(true);
-        LoadingProgressBar.gameObject.SetActive(true);
-
-        while(!loadingSceneOperation.isDone)
-        {
-            LoadingPercentage.text = (loadingSceneOperation.progress * 100) + "%";
-            LoadingProgressBar.fillAmount = Mathf.Lerp(LoadingProgressBar.fillAmount, loadingSceneOperation.progress,
-                Time.deltaTime * 5);
-
-            print(loadingSceneOperation.progress);
-            yield return null;
-        }
-
-        isLoadingScene = false;
-        loadingSceneOperation.allowSceneActivation = true;
-
-        LoadingPercentage.gameObject.SetActive(false);
-        LoadingProgressBar.gameObject.SetActive(false);
+        anim.SetTrigger("loading");
     }
 
-    public void Load(int i)
+    public void scene()
     {
-        if (!isLoadingScene)
-        {
-            StartCoroutine(SwitchToScene(i));
-        }
+        SceneManager.LoadScene(Random.Range(1, 2));
     }
 
     private void Start()
     {
         instance = this;
+        anim = GetComponent<Animator>();
+        anim.SetTrigger("enter");
     }
 }
