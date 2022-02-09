@@ -15,20 +15,6 @@ public class SceneLoader : MonoBehaviour
     private Animator componentAnimator;
     private AsyncOperation loadingSceneOperation;
 
-<<<<<<< HEAD
-    private bool isLoadingScene;
-
-    private Animator anim;
-
-    public void Load()
-    {
-        anim.SetTrigger("loading");
-    }
-
-    public void scene()
-    {
-        SceneManager.LoadScene(Random.Range(1, 2));
-=======
     public static void SwitchToScene(int sceneName)
     {
         instance.componentAnimator.SetTrigger("sceneClosing");
@@ -70,20 +56,13 @@ public class SceneLoader : MonoBehaviour
             LoadingProgressBar.fillAmount = Mathf.Lerp(LoadingProgressBar.fillAmount, loadingSceneOperation.progress,
                 Time.deltaTime * 5);
         }
->>>>>>> parent of 17c86cb (shit)
     }
 
     public void OnAnimationOver()
     {
-<<<<<<< HEAD
-        instance = this;
-        anim = GetComponent<Animator>();
-        anim.SetTrigger("enter");
-=======
         // Чтобы при открытии сцены, куда мы переключаемся, проигралась анимация opening:
         shouldPlayOpeningAnimation = true;
 
         loadingSceneOperation.allowSceneActivation = true;
->>>>>>> parent of 17c86cb (shit)
     }
 }

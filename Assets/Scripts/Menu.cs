@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject[] _menusObjects;
 
     private void Awake()
@@ -13,12 +14,8 @@ public class Menu : MonoBehaviour
     }
     public void StartGame(int Mode) 
     {
-<<<<<<< HEAD
-        _sceneloader.Load();
-=======
         _gameManager._mode = Mode;
         SceneLoader.SwitchToScene(1);
->>>>>>> parent of 17c86cb (shit)
     }
     public void ExitGame()
     {
