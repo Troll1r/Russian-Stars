@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     [Space]
     [Header("HealthAndDamage")]
     [SerializeField] private float _health;
-    private void Awake()
+    private void Start()
     {
         Application.targetFrameRate = 60;
 
