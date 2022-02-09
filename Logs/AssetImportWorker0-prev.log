@@ -15,11 +15,19 @@ D:/UnityGames/Zombie-Wars
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< HEAD
 52289
 Successfully changed project path to: D:/UnityGames/Zombie-Wars
 D:/UnityGames/Zombie-Wars
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 48.76 ms, found 2 plugins.
+=======
+65329
+Successfully changed project path to: D:/UnityProjects/Zombie-Wars
+D:/UnityProjects/Zombie-Wars
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 48.78 ms, found 2 plugins.
+>>>>>>> parent of 17c86cb (shit)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.24f1 (79c78de19888)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/Resources/UnitySubsystems
@@ -32,6 +40,7 @@ Direct3D:
     VRAM:     11127 MB
     Driver:   27.21.14.5671
 Initialize mono
+<<<<<<< HEAD
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.24f1/Editor/Data/MonoBleedingEdge/etc'
@@ -48,11 +57,30 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (550ms)
 		BeginReloadAssembly (53ms)
+=======
+Mono path[0] = 'D:/UnityEditor/2020.3.24f1/Editor/Data/Managed'
+Mono path[1] = 'D:/UnityEditor/2020.3.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/UnityEditor/2020.3.24f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56228
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/UnityEditor/2020.3.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001534 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 45.48 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.712 seconds
+Domain Reload Profiling:
+	ReloadAssembly (712ms)
+		BeginReloadAssembly (80ms)
+>>>>>>> parent of 17c86cb (shit)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
+<<<<<<< HEAD
 		EndReloadAssembly (428ms)
 			LoadAssemblies (51ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -67,15 +95,36 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (15ms)
 				ProcessInitializeOnLoadAttributes (72ms)
 				ProcessInitializeOnLoadMethodAttributes (26ms)
+=======
+		EndReloadAssembly (551ms)
+			LoadAssemblies (80ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (178ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (32ms)
+			SetupLoadedEditorAssemblies (205ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (46ms)
+				BeforeProcessingInitializeOnLoad (20ms)
+				ProcessInitializeOnLoadAttributes (102ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
+>>>>>>> parent of 17c86cb (shit)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< HEAD
 Registered in 0.004584 seconds.
+=======
+Registered in 0.004857 seconds.
+>>>>>>> parent of 17c86cb (shit)
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
+<<<<<<< HEAD
 Refreshing native plugins compatible for Editor in 44.64 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
@@ -83,10 +132,20 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1157ms)
 		BeginReloadAssembly (136ms)
+=======
+Refreshing native plugins compatible for Editor in 47.92 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.372 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1373ms)
+		BeginReloadAssembly (183ms)
+>>>>>>> parent of 17c86cb (shit)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 			CreateAndSetChildDomain (16ms)
 		EndReloadAssembly (964ms)
 			LoadAssemblies (89ms)
@@ -101,10 +160,27 @@ Domain Reload Profiling:
 				RefreshPlugins (45ms)
 				BeforeProcessingInitializeOnLoad (72ms)
 				ProcessInitializeOnLoadAttributes (302ms)
+=======
+			CreateAndSetChildDomain (20ms)
+		EndReloadAssembly (1123ms)
+			LoadAssemblies (123ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (331ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (498ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (48ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (357ms)
+>>>>>>> parent of 17c86cb (shit)
 				ProcessInitializeOnLoadMethodAttributes (5ms)
 				AfterProcessingInitializeOnLoad (8ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
+<<<<<<< HEAD
 			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
@@ -118,6 +194,21 @@ System memory in use after: 85.8 MB.
 
 Unloading 34 unused Assets to reduce memory usage. Loaded Objects now: 2400.
 Total: 3.320800 ms (FindLiveObjects: 0.181100 ms CreateObjectMapping: 0.074700 ms MarkObjects: 3.000500 ms  DeleteObjects: 0.063200 ms)
+=======
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1977 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 105.6 MB.
+System memory in use after: 105.7 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 2423.
+Total: 3.715500 ms (FindLiveObjects: 0.192700 ms CreateObjectMapping: 0.049400 ms MarkObjects: 3.443400 ms  DeleteObjects: 0.028600 ms)
+>>>>>>> parent of 17c86cb (shit)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -133,6 +224,7 @@ AssetImportParameters requested are different than current active one (requested
 Received Import Request.
   path: Assets/Scenes/MainScene.unity
   artifactKey: Guid(6c445dbd9c7de714fa97ee41a66aa5ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+<<<<<<< HEAD
 Start importing Assets/Scenes/MainScene.unity using Guid(6c445dbd9c7de714fa97ee41a66aa5ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e46d8ffbdbc46e525d53d4bc8a5c251a') in 0.018078 seconds 
   Import took 0.021249 seconds .
 
@@ -203,6 +295,10 @@ System memory in use after: 85.7 MB.
 
 Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 2402.
 Total: 2.975500 ms (FindLiveObjects: 0.162200 ms CreateObjectMapping: 0.062600 ms MarkObjects: 2.726100 ms  DeleteObjects: 0.023300 ms)
+=======
+Start importing Assets/Scenes/MainScene.unity using Guid(6c445dbd9c7de714fa97ee41a66aa5ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1859d23a25fcfc50c937ae651ebe0d8a') in 0.021219 seconds 
+  Import took 0.024196 seconds .
+>>>>>>> parent of 17c86cb (shit)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -217,6 +313,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< HEAD
   Time since last request: 151.463858 seconds.
   path: Assets/Scenes/scene.unity
   artifactKey: Guid(3f6458b4cf255a44eb99077d045be363) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -409,20 +506,25 @@ System memory in use after: 88.8 MB.
 
 Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 2416.
 Total: 3.148800 ms (FindLiveObjects: 0.233800 ms CreateObjectMapping: 0.113700 ms MarkObjects: 2.777900 ms  DeleteObjects: 0.021700 ms)
+=======
+  Time since last request: 0.000254 seconds.
+  path: Assets/Scenes/Menu
+  artifactKey: Guid(eca2775c4ef8aec4eb364ea12eb7011a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Menu using Guid(eca2775c4ef8aec4eb364ea12eb7011a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af6b5443a957357b0db449594760dc2c') in 0.012062 seconds 
+  Import took 0.015020 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+  Time since last request: 880.956129 seconds.
+  path: Assets/Animations
+  artifactKey: Guid(bfc09ab2cf02ee140a269e640e6c6934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations using Guid(bfc09ab2cf02ee140a269e640e6c6934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f1e77a4b88eb07f62d7fa9a67f274d0') in 0.010512 seconds 
+  Import took 0.024459 seconds .
+>>>>>>> parent of 17c86cb (shit)
+
+========================================================================
+Received Import Request.
+<<<<<<< HEAD
   Time since last request: 75.139593 seconds.
   path: Assets/Scenes/scene.unity
   artifactKey: Guid(3f6458b4cf255a44eb99077d045be363) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -2173,3 +2275,35 @@ AssetImportParameters requested are different than current active one (requested
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+=======
+  Time since last request: 45.415715 seconds.
+  path: Assets/Animations/SceneLoader.controller
+  artifactKey: Guid(0f6cbb7850d4a4041b393d6ccd9cd63f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/SceneLoader.controller using Guid(0f6cbb7850d4a4041b393d6ccd9cd63f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e87d9bbc6b70cb02f995872193602350') in 0.048642 seconds 
+  Import took 0.051943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 526.250720 seconds.
+  path: Assets/Animations/Scene Start.anim
+  artifactKey: Guid(264a4a140df6fd546964f9903a69f5dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Scene Start.anim using Guid(264a4a140df6fd546964f9903a69f5dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6531b8c480df9eff3a2848ab2cb5ac4c') in 0.011267 seconds 
+  Import took 0.014379 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 311.073982 seconds.
+  path: Assets/Scripts/SceneLOader.cs
+  artifactKey: Guid(9e7a42662818f324990f9a554b803781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/SceneLOader.cs using Guid(9e7a42662818f324990f9a554b803781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b75024006d3e58fce5b666492ae26452') in 0.010615 seconds 
+  Import took 0.013885 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 71.160940 seconds.
+  path: Assets/Scripts/SceneLOader.cs
+  artifactKey: Guid(9e7a42662818f324990f9a554b803781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/SceneLOader.cs using Guid(9e7a42662818f324990f9a554b803781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c19f4a95fa93df9d4bdcf83f2139532') in 0.004567 seconds 
+  Import took 0.008408 seconds .
+
+>>>>>>> parent of 17c86cb (shit)
